@@ -16,7 +16,7 @@ import CheckOut from '@/components/CheckOut.vue';
 import MessageModal from '@/components/MessageModal.vue';
 
 export default {
-  name: 'App',
+  name: 'Index',
   components: {
     ProductList,
     ProductDetailModal,

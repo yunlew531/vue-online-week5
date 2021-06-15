@@ -1,5 +1,5 @@
 <template>
-  <Loading v-model:active="isLoading" :is-full-page="fullPage"/>
+  <Loading v-model:active="isLoading" />
   <section class="container py-5">
     <h2>購物車</h2>
     <div v-if="carts.length" class="text-end my-3">

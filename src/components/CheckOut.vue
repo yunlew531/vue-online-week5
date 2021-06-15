@@ -1,5 +1,5 @@
 <template>
-  <Loading v-model:active="isLoading" :is-full-page="fullPage"/>
+  <Loading v-model:active="isLoading" />
   <section class="w-50 mx-auto py-5">
     <h2>填寫訂單</h2>
     <Form v-slot="{ errors }" @submit="onSubmit">
@@ -21,7 +21,9 @@
           class="form-control" :class="{ 'is-invalid': errors['電話'] }"
           placeholder="請輸入 電話" :rules="validateTel" v-model="user.tel">
         </Field>
-        <error-message name="電話" class="invalid-feedback"></error-message>
+        <error-message name="電話" class="invalid-feedback" as="span">
+          <span>請填寫正確號碼!</span>
+        </error-message>
         <label for="address" class="form-label">地址</label>
         <Field id="address" name="地址" type="text"
           class="form-control" :class="{ 'is-invalid': errors['地址'] }"
@@ -41,7 +43,7 @@ import Loading from 'vue-loading-overlay';
 import 'vue-loading-overlay/dist/vue-loading.css';
 
 export default {
-  name: 'Home',
+  name: 'CheckOut',
   components: {
     Loading,
   },
@@ -67,6 +69,7 @@ export default {
       };
       this.axios.post(api, { data })
         .then((res) => {
+          console.log(res);
           this.isLoading = false;
           if (res.data.success) {
             this.$emitter.emit('addMsg', '成功送出訂單!');
@@ -93,6 +96,3 @@ export default {
   },
 };
 </script>
-
-<style>
-</style>

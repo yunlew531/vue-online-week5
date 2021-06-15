@@ -1,5 +1,5 @@
 <template>
-  <Loading v-model:active="isLoading" :is-full-page="fullPage"/>
+  <Loading v-model:active="isLoading" />
   <div class="modal fade" id="productDetailModal" tabindex="-1" aria-labelledby="exampleModalLabel"
     aria-hidden="true" ref="productDetailModal">
     <div class="modal-dialog modal-lg">

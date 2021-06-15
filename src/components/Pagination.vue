@@ -7,7 +7,7 @@
           class="page-link"
           href="#"
           aria-label="Previous"
-          @click="this.$emit('changePage', -1)"
+          @click.prevent="this.$emit('changePage', -1)"
         >
           <span aria-hidden="true">&laquo;</span>
         </a>
@@ -21,7 +21,7 @@
         <a
           class="page-link"
           href="#"
-          @click="this.$emit('changePage', { page })"
+          @click.prevent="this.$emit('changePage', { page })"
           >{{ page }}</a
         >
       </li>
@@ -31,7 +31,7 @@
           class="page-link"
           href="#"
           aria-label="Next"
-          @click="this.$emit('changePage', 1)"
+          @click.prevent="this.$emit('changePage', 1)"
         >
           <span aria-hidden="true">&raquo;</span>
         </a>

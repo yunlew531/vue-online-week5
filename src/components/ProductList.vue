@@ -1,5 +1,5 @@
 <template>
-  <Loading v-model:active="isLoading" :is-full-page="fullPage"/>
+  <Loading v-model:active="isLoading"/>
   <section class="container py-5">
     <h2>商品</h2>
     <div class="row">
@@ -65,9 +65,11 @@ export default {
       this.axios
         .get(api)
         .then((res) => {
-          this.isLoading = false;
-          this.products = res.data.products;
-          this.pagination = res.data.pagination;
+          if (res.data.success) {
+            this.isLoading = false;
+            this.products = res.data.products;
+            this.pagination = res.data.pagination;
+          }
         })
         .catch((err) => {
           console.dir(err);
